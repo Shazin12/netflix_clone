@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 const api = "b64d67b0829f7d9af77b69d7e65bdc12";
 
+const imageUrl = "https://image.tmdb.org/t/p/original";
+
 /*
 
 API Read Access Token (v4 auth)

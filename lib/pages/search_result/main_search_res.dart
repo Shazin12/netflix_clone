@@ -16,6 +16,18 @@ class MainSearchResult extends StatelessWidget {
         sizedBoxH10,
         sizedBoxH10,
         const SearchResChild()
+        // Expanded(
+        //   child: ListView.builder(
+        //     physics: NeverScrollableScrollPhysics(),
+        //     itemCount: 40,
+        //     itemBuilder: (_,i) => Text(i.toString())),
+        // )
+        //  SingleChildScrollView(
+        //    child: Container(
+        //     width: double.infinity,
+        //     height: 300,
+        //     child: SingleChildScrollView(child: SearchResChild())),
+        //  )
       ],
     );
   }

@@ -49,7 +49,9 @@ class SearchTextField extends StatelessWidget {
           ),
         ),
       ),
-      onChanged: (v) {
+      onChanged: (v) {},
+      onEditingComplete: () {
+        var v = _controller.text;
         var _pro = context.read<SearchProvider>();
         _pro.setData(v);
         _pro.getSearchRes(v);

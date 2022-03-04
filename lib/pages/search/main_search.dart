@@ -23,10 +23,10 @@ class MainSearch extends StatelessWidget {
           sizedBoxH10,
           Consumer<SearchProvider>(builder: (context, value, child) {
             return Expanded(
-              child: MainSearchResult(),
-              // child: value.isResult()
-              //     ? const MainSearchResult()
-              //     : const MianSearchChild(),
+            //  child: MainSearchResult(),
+              child: value.isResult()
+                  ? const MainSearchResult()
+                  : const MianSearchChild(),
             );
           })
         ],

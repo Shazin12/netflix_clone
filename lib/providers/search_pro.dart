@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:netfilx_clone/models/searchModel/searchModel.dart';
+import 'package:netfilx_clone/network/main_network.dart';
 import 'package:netfilx_clone/network/search_network/search_network.dart';
 
 class SearchProvider with ChangeNotifier {
@@ -18,7 +19,14 @@ class SearchProvider with ChangeNotifier {
     return searchData.isEmpty ? false : true;
   }
 
-  Future<void> getSearchRes(String search) async {
+  Future<bool> getMoreSearchRes() async {
+    nextPage = currentPage + 1;
+    print(nextPage);
+    await getSearchRes(searchData, false);
+    return true;
+  }
+
+  Future<void> getSearchRes(String search, [bool newSearch = true]) async {
     if (searchData.isEmpty || searchData == "") {
       currentPage = 1;
       nextPage = 1;
@@ -26,17 +34,20 @@ class SearchProvider with ChangeNotifier {
       notifyListeners();
     } else {
       loading = true;
-      searchedResult.clear();
+      if (newSearch) {
+        currentPage = 1;
+        nextPage = 1;
+        searchedResult.clear();
+        cancelRequest();
+      }
       notifyListeners();
 
-      var data = await SearchNetwork.searchMovies(search, nextPage);
+      var data = await searchMovies(search, nextPage);
       if (data.isNotEmpty) {
         searchedResult
             .removeWhere((element) => element.page == data.first.page);
-        currentPage = data.first.page;
-        nextPage = data.first.page + 1;
-        print(data.length);
 
+        currentPage = data.first.page;
         searchedResult.addAll(data);
       }
       loading = false;
