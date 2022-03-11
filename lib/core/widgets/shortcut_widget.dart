@@ -4,6 +4,21 @@ const api = "b64d67b0829f7d9af77b69d7e65bdc12";
 
 const imageUrl = "https://image.tmdb.org/t/p/original";
 
+const popularMoviesUrl = "https://api.themoviedb.org/3/movie/popular";
+
+const upComingUrl = "https://api.themoviedb.org/3/movie/upcoming";
+
+const nowPlayingUrl = "https://api.themoviedb.org/3/movie/now_playing";
+// ?api_key=b64d67b0829f7d9af77b69d7e65bdc12&page=1
+
+const _videoLinkConverter =
+    "https://loader.to/ajax/download.php?button=1&start=1&end=1&format=720&url=https%3A%2F%2Fyoutube.com%2Fwatch%3Fv%3D";
+
+const downloadUrlGetter = "https://loader.to/ajax/progress.php?id=";
+
+String getConverterRes(String id) {
+  return "$_videoLinkConverter$id%3Dmp3";
+}
 /*
 
 API Read Access Token (v4 auth)

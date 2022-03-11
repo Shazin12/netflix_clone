@@ -1,4 +1,4 @@
-import 'package:flutter/widgets.dart';
+import 'package:flutter/foundation.dart';
 import 'package:netfilx_clone/models/searchModel/searchModel.dart';
 import 'package:netfilx_clone/network/main_network.dart';
 import 'package:netfilx_clone/network/search_network/search_network.dart';
@@ -21,7 +21,6 @@ class SearchProvider with ChangeNotifier {
 
   Future<bool> getMoreSearchRes() async {
     nextPage = currentPage + 1;
-    print(nextPage);
     await getSearchRes(searchData, false);
     return true;
   }

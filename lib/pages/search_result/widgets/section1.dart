@@ -88,7 +88,7 @@ class _SearchResChildState extends State<SearchResChild> {
                             childAspectRatio: 1.3 / 1.9,
                           ),
                           itemBuilder: (_, i) => SearchResImgShow(
-                              img: v.searchedResult[i].poster_path),
+                              img: v.searchedResult[i].movie.poster_path),
                         );
             }),
             bottomLoading

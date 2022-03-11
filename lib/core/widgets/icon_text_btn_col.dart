@@ -26,23 +26,26 @@ class IconAndTextColBtn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.end,
-      children: [
-        Icon(
-          icon,
-          size: iconSize,
-          color: iconColor,
-        ),
-        Text(
-          title,
-          style: TextStyle(
-            fontSize: textSize,
-            color: textColor,
-            fontWeight: fontWeight,
+    return InkWell(
+      onTap:() => onTap(),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          Icon(
+            icon,
+            size: iconSize,
+            color: iconColor,
           ),
-        ),
-      ],
+          Text(
+            title,
+            style: TextStyle(
+              fontSize: textSize,
+              color: textColor,
+              fontWeight: fontWeight,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

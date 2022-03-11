@@ -1,5 +1,5 @@
-
 import 'package:flutter/material.dart';
+import 'package:netfilx_clone/core/widgets/image_loader.dart';
 import 'package:netfilx_clone/core/widgets/shortcut_widget.dart';
 
 class TopSearchChild extends StatelessWidget {
@@ -21,21 +21,41 @@ class TopSearchChild extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           // movie image
-          Container(
-            padding: EdgeInsets.zero,
-            height: 55,
-            width: 100,
-            decoration: BoxDecoration(
-                color: Colors.yellowAccent,
-                borderRadius: BorderRadius.circular(3)),
+          Stack(
+            children: [
+              Container(
+                height: 140,
+                width: 90,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(6),
+                  child: ImageLoader(img: imgUrl),
+                ),
+                decoration: BoxDecoration(
+                    color: Colors.grey.withOpacity(0.1), borderRadius: BorderRadius.circular(6)),
+              ),
+              Container(
+                height: 140,
+                width: 90,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(6),
+                  child: ImageLoader(img: imgUrl),
+                ),
+                decoration: BoxDecoration(
+                    color: Colors.transparent, borderRadius: BorderRadius.circular(6)),
+              ),
+            ],
           ),
           sizedBoxW10,
           // movie name
-          const Text(
-            "Movie Name",
-            style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
+          Expanded(
+            child: Text(
+              title,
+              overflow: TextOverflow.ellipsis,
+              maxLines: 2,
+              style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
+            ),
           ),
-          const Spacer(),
+
           // play icon buttion
           IconButton(
               splashRadius: 20,

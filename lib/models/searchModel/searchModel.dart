@@ -2,6 +2,7 @@
 
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:netfilx_clone/models/movies_model/movie_model.dart';
 
 part 'searchModel.freezed.dart';
 
@@ -9,15 +10,7 @@ part 'searchModel.freezed.dart';
 class SearchModel with _$SearchModel {
   factory SearchModel(
     int page,
-    int id,
-    String media_type,
-    String original_language,
-    String title,
-    String overview,
-    String poster_path,
-    String release_date,
-    String vote_average,
-    String vote_count,
+    MovieModel movie,
   ) = _SearchModel;
 }
 
