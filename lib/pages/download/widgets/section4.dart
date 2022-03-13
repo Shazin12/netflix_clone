@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:netfilx_clone/core/widgets/shortcut_widget.dart';
 
@@ -27,7 +28,7 @@ class Sectin4Button extends StatelessWidget {
             textColor: Colors.black,
             bgColor: Colors.white,
             title: "See What You Can Download",
-            onPressed: () {},
+            onPressed: () async {},
           ),
         ),
       ],

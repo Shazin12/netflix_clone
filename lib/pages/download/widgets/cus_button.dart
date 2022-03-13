@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
 class DownLoadCusButton extends StatelessWidget {
@@ -19,7 +20,10 @@ class DownLoadCusButton extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 13),
       color: bgColor,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
-      onPressed: () {},
+      onPressed: () async {
+        //  print("object");
+        var dio = Dio();
+      },
       child: Text(
         title,
         textAlign: TextAlign.center,

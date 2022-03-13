@@ -78,13 +78,17 @@ class CusLazyLoadScrollViewState extends State<CusLazyLoadScrollView> {
       //   print(notification.metrics.maxScrollExtent);
       if (notification.metrics.pixels >
           notification.metrics.maxScrollExtent - 10) {
-        setState(() {
-          isInBottom = true;
-        });
+        Future.delayed(
+            Duration.zero,
+            () => setState(() {
+                  isInBottom = true;
+                }));
       } else {
-        setState(() {
-          isInBottom = false;
-        });
+        Future.delayed(
+            Duration.zero,
+            () => setState(() {
+                  isInBottom = false;
+                }));
       }
       if (notification is ScrollUpdateNotification) {
         if (notification.metrics.maxScrollExtent >
